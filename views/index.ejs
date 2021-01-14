@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - To Do List</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="clear">
+                <a href="/reset-list"><i class="fa fa-refresh"></i></a>
+            </div>
+            
+        </div>
+        <div class="content">
+            <ul id="list">
+               
+                <% for(let i of todo){%>
+                    <li class="item">
+                        <!-- <i class="fa fa-circle-thin co" job="complete" id="0"></i> -->
+                        <p class="text"><%= i.task %></p>
+                        <a href="/delete-todo/?id=<%= i._id%>"><i class="fa fa-trash-o de" ></i></a>
+                    </li>
+                <%}%>
+                
+            </ul>
+        </div>
+        <div class="add-to-do">
+            <!-- <a href="/Delete_task" method="POST">
+                <i class="fa fa-plus-circle"></i>
+            </a> -->
+                <form action="/add-task" method="POST">
+                    <!-- <input type="date"  name="date" placeholder="dd-mm-yyyy" required> -->
+                    <input type="text" name="todo_item"id="input" placeholder="             Click to - Add a to-do" required>
+                    <input type="submit" value="Add" class = "submit-button">    
+                </form>
+            
+        </div>
+    </div>
+</body>
+</html>
